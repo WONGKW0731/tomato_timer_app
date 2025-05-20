@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Study Room</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Tomato Timer Study Room</h1>
+
+    <div id="join-section">
+        <input type="text" id="username" placeholder="Enter your name">
+        <button id="joinButton">Join Study Room</button>
+    </div>
+
+    <div id="room-section" style="display:none;">
+        <h2 id="roomName"></h2>
+        <p>Your SID: <span id="mySid"></span></p>
+        <h3>Users in Room:</h3>
+        <ul id="userList">
+            <!-- User list will be populated here -->
+        </ul>
+
+        <h3>Your Status:</h3>
+        <button class="status-btn" data-status="working">Start Working (Pomodoro)</button>
+        <button class="status-btn" data-status="short_break">Take Short Break</button>
+        <button class="status-btn" data-status="long_break">Take Long Break</button>
+        <button class="status-btn" data-status="idle">Set to Idle</button>
+        <p>Current Status: <span id="myStatus">idle</span></p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
